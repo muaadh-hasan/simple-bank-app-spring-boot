@@ -3,16 +3,14 @@ package com.example.Bank.controllers;
 import com.example.Bank.models.Customer;
 import com.example.Bank.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping(value = "/customers")
+@CrossOrigin
 public class CustomerController {
 
     CustomerRepository customerRepository;

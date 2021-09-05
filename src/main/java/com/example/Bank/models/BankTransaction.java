@@ -2,6 +2,7 @@ package com.example.Bank.models;
 
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -14,7 +15,8 @@ public class BankTransaction {
 
     private String type;
     private int amount;
-    private Date date;
+
+    private LocalDate date;
 
     public BankTransaction() {
     }
@@ -22,15 +24,17 @@ public class BankTransaction {
     public BankTransaction(String type, int amount) {
         this.type = type;
         this.amount = amount;
+        this.date = LocalDate.now();
+
     }
 
-    public BankTransaction(String type, int amount, Date date) {
+    public BankTransaction(String type, int amount, LocalDate date) {
         this.type = type;
         this.amount = amount;
         this.date = date;
     }
 
-    public BankTransaction(Long id, String type, int amount, Date date) {
+    public BankTransaction(Long id, String type, int amount, LocalDate date) {
         this.id = id;
         this.type = type;
         this.amount = amount;
@@ -61,11 +65,11 @@ public class BankTransaction {
         this.amount = amount;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
