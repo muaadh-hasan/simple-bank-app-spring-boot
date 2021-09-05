@@ -3,7 +3,6 @@ package com.example.Bank.models;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name = "bankTransaction")
@@ -13,7 +12,7 @@ public class BankTransaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private PaymentType type;
+    private Payment type;
     private int amount;
 
     private LocalDate date;
@@ -21,20 +20,20 @@ public class BankTransaction {
     public BankTransaction() {
     }
 
-    public BankTransaction(PaymentType type, int amount) {
+    public BankTransaction(Payment type, int amount) {
         this.type = type;
         this.amount = amount;
         this.date = LocalDate.now();
 
     }
 
-    public BankTransaction(PaymentType type, int amount, LocalDate date) {
+    public BankTransaction(Payment type, int amount, LocalDate date) {
         this.type = type;
         this.amount = amount;
         this.date = date;
     }
 
-    public BankTransaction(Long id, PaymentType type, int amount, LocalDate date) {
+    public BankTransaction(Long id, Payment type, int amount, LocalDate date) {
         this.id = id;
         this.type = type;
         this.amount = amount;
@@ -49,11 +48,11 @@ public class BankTransaction {
         this.id = id;
     }
 
-    public PaymentType getType() {
+    public Payment getType() {
         return type;
     }
 
-    public void setType(PaymentType type) {
+    public void setType(Payment type) {
         this.type = type;
     }
 

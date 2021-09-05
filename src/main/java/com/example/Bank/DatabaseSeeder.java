@@ -3,7 +3,7 @@ package com.example.Bank;
 import com.example.Bank.models.BankTransaction;
 import com.example.Bank.models.CreditCard;
 import com.example.Bank.models.Customer;
-import com.example.Bank.models.PaymentType;
+import com.example.Bank.models.Payment;
 import com.example.Bank.repositories.BankTransactionRepository;
 import com.example.Bank.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,8 +41,8 @@ public class DatabaseSeeder implements CommandLineRunner {
         listCustomers.add(new Customer("Sohaib", "Manial", Male,1));
         listCustomers.add(new Customer("Doaa", "Nasser city",Female,0));
 
-        PaymentType cash = new PaymentType(CASH ,1500 , null );
-        PaymentType Credit = new PaymentType(CREDIT_CARD ,null , new CreditCard(12354,"VISA","132moo") );
+        Payment cash = new Payment(1,CASH ,1500 , -1 );
+        Payment Credit = new Payment(2,CREDIT_CARD ,-1,2);
 
         listTransactions.add(new BankTransaction(cash,1500));
         listTransactions.add(new BankTransaction(Credit,2500));

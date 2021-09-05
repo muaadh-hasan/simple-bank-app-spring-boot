@@ -1,12 +1,29 @@
 package com.example.Bank.models;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "Credit_Card")
 public class CreditCard {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     int cardNumber;
     String nameOfCard;
     LocalDate date;
     String securityCode;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public CreditCard() {
     }
