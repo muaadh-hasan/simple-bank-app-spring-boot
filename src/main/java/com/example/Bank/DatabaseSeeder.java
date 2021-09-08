@@ -5,6 +5,7 @@ import com.example.Bank.models.CreditCard;
 import com.example.Bank.models.Customer;
 import com.example.Bank.models.Payment;
 import com.example.Bank.repositories.BankTransactionRepository;
+import com.example.Bank.repositories.CreditCardRepository;
 import com.example.Bank.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -23,6 +24,8 @@ public class DatabaseSeeder implements CommandLineRunner {
 
     private CustomerRepository customerRepository;
     private BankTransactionRepository bankTransactionRepository;
+
+    private CreditCardRepository creditCardRepository;
 
     @Autowired
     public DatabaseSeeder(CustomerRepository customerRepository , BankTransactionRepository bankTransactionRepository){
@@ -48,6 +51,9 @@ public class DatabaseSeeder implements CommandLineRunner {
         listTransactions.add(new BankTransaction(Credit,2500));
         listTransactions.add(new BankTransaction(cash,3000));
         listTransactions.add(new BankTransaction(cash,18000));
+
+
+        creditCardRepository.save(new CreditCard(123321,"Visa","14Mo"));
 
         customerRepository.saveAll(listCustomers);
         bankTransactionRepository.saveAll(listTransactions);

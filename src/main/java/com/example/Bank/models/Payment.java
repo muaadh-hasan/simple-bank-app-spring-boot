@@ -10,7 +10,7 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private int customerId;
+
     private TypeOfPayment type;
     private int cash;
     private int creditCardId;
@@ -19,7 +19,7 @@ public class Payment {
     }
 
     public Payment(int customerId, TypeOfPayment type, int cash, int creditCardId) {
-        this.customerId = customerId;
+//        this.customerId = customerId;
         this.type = type;
         this.cash = cash;
         this.creditCardId = creditCardId;
@@ -33,13 +33,13 @@ public class Payment {
         this.id = id;
     }
 
-    public int getCustomerId() {
-        return customerId;
-    }
+//    public int getCustomerId() {
+//        return customerId;
+//    }
 
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
-    }
+//    public void setCustomerId(int customerId) {
+//        this.customerId = customerId;
+//    }
 
     public TypeOfPayment getType() {
         return type;

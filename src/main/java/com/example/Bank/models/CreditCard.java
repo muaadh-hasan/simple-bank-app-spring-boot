@@ -12,10 +12,12 @@ public class CreditCard {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    int cardNumber;
-    String nameOfCard;
-    LocalDate date;
-    String securityCode;
+
+    private int cardNumber;
+    private int customerId;
+    private String nameOfCard;
+    private LocalDate date;
+    private String securityCode;
 
     public Long getId() {
         return id;
@@ -28,11 +30,21 @@ public class CreditCard {
     public CreditCard() {
     }
 
-    public CreditCard(int cardNumber, String nameOfCard,  String securityCode) {
+
+    public CreditCard(int cardNumber, String nameOfCard,  String securityCode, int customerId) {
         this.cardNumber = cardNumber;
         this.nameOfCard = nameOfCard;
         this.date = LocalDate.now();
         this.securityCode = securityCode;
+        this.customerId = customerId;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
     public int getCardNumber() {
