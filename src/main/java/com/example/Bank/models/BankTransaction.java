@@ -12,7 +12,7 @@ public class BankTransaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Payment type;
+    private TypeOfPayment type;
     private int amount;
 
     private LocalDate date;
@@ -20,20 +20,20 @@ public class BankTransaction {
     public BankTransaction() {
     }
 
-    public BankTransaction(Payment type, int amount) {
+    public BankTransaction(TypeOfPayment type, int amount) {
         this.type = type;
         this.amount = amount;
         this.date = LocalDate.now();
 
     }
 
-    public BankTransaction(Payment type, int amount, LocalDate date) {
+    public BankTransaction(TypeOfPayment type, int amount, LocalDate date) {
         this.type = type;
         this.amount = amount;
         this.date = date;
     }
 
-    public BankTransaction(Long id, Payment type, int amount, LocalDate date) {
+    public BankTransaction(Long id, TypeOfPayment type, int amount, LocalDate date) {
         this.id = id;
         this.type = type;
         this.amount = amount;
@@ -48,11 +48,11 @@ public class BankTransaction {
         this.id = id;
     }
 
-    public Payment getType() {
+    public TypeOfPayment getType() {
         return type;
     }
 
-    public void setType(Payment type) {
+    public void setType(TypeOfPayment type) {
         this.type = type;
     }
 

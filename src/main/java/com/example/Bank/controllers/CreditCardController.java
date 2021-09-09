@@ -4,12 +4,13 @@ import com.example.Bank.models.CreditCard;
 import com.example.Bank.repositories.CreditCardRepository;
 import com.example.Bank.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
 
 @RestController
 @CrossOrigin
+@RequestMapping(value = "/CreditCard")
 public class CreditCardController {
 
     CreditCardRepository creditCardRepository;
@@ -19,12 +20,14 @@ public class CreditCardController {
         this.creditCardRepository = creditCardRepository;
     }
 
-    public void AddCreditCard(CreditCard creditCard){
+    @RequestMapping(value = "/add" ,method = RequestMethod.POST)
+    public void AddCreditCard(@RequestBody CreditCard creditCard){
         creditCardRepository.save(creditCard);
     }
 
-    public CreditCard getCreditCard(int CustomerId){
-        return creditCardRepository.findByCustomerId(CustomerId);
+    @GetMapping("/byCustomerId/{id}")
+    public CreditCard getCreditCard(@PathVariable String CustomerId){
+        return creditCardRepository.findByCustomerId(UUID.fromString(CustomerId));
     }
 
 
